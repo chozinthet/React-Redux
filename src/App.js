@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {connect} from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props){
+  function add(){
+    props.add();
+  }
+
+  function minus(){
+    props.minus();
+  }
+
+  return <div>
+    <h1>{props.greet}</h1>
+    <button type="submit" onClick={add}>Add</button>
+    <button type="submit" onClick={minus}>Reduce</button>
+  </div>
 }
 
-export default App;
+
+function showState(data){
+  return {
+    greet: data
+  };
+}
+
+function changeAction(dispatch){
+  return {
+    add(){
+      dispatch({type: 'Add'})
+    },
+    minus(){
+      dispatch({type: 'Reduce'})
+    }
+  }
+}
+
+const connectToStore = connect(showState, changeAction)(App);
+
+export default connectToStore;
+
+
