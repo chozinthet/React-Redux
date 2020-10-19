@@ -1,6 +1,7 @@
 React Redux ( Simple React Redux Example )
 
----> index.js / App.js
+---> src/index.js 
+---> src/App.js
 
 
 
