@@ -21,6 +21,7 @@ used Npm package
 
 src > index.js
 
+```
 import {createStore} from 'redux';
 
 import {Provider} from 'react-redux';
@@ -58,11 +59,13 @@ ReactDOM.render(
   document.getElementById('root')
   
 );
+```
 
 ********************************
 
 src > App.js
 
+```
 import React from 'react';
 
 import {connect} from 'react-redux';
@@ -126,5 +129,5 @@ function changeAction(dispatch){
 const connectToStore = connect(showState, changeAction)(App);
 
 export default connectToStore;
-
+```
 
